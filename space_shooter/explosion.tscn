@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dix0im2x40wt4"]
+
+[ext_resource type="Texture2D" uid="uid://cc5kqjomebndv" path="res://Sprites.png" id="1_hq5po"]
+[ext_resource type="Script" path="res://explosion.gd" id="2_ox66n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im2wf"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp3dq"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rba8"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wejn"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7wmo"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjw3g"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmpmp"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unwwm"]
+atlas = ExtResource("1_hq5po")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kum0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im2wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fp3dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rba8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wejn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7wmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjw3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmpmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unwwm")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="explosion" type="AnimatedSprite2D"]
+position = Vector2(262, 318)
+sprite_frames = SubResource("SpriteFrames_kum0l")
+script = ExtResource("2_ox66n")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

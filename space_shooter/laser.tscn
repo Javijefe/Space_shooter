@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://qlnae732d3we"]
+
+[ext_resource type="Script" path="res://laser.gd" id="1_onxht"]
+[ext_resource type="Texture2D" uid="uid://46u3wll8gog5" path="res://laserRed01.png" id="2_xdena"]
+
+[node name="laser" type="Area2D"]
+position = Vector2(262, 775)
+script = ExtResource("1_onxht")
+
+[node name="LaserRed01" type="Sprite2D" parent="."]
+position = Vector2(2, -2)
+texture = ExtResource("2_xdena")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, -2)
+polygon = PackedVector2Array(-4.5, 27, -4.5, -27, 4.5, -27, 4.5, 27)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
